@@ -1,0 +1,12 @@
+node {
+
+    checkout scm
+
+    docker.withRegistry('https://hub.docker.com/settings/general', 'dockerHub') {
+
+        def customImage = docker.build("madhavikdm\dockerimage")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
+}
