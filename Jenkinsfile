@@ -41,44 +41,27 @@ node {
          }
 
      }
+     stage('Push image') {
+ docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
 
+ }
+     }
 
-
-//     stage('Push image to aws ecr') {
-
-//       echo '### Started pushing the docker image..'
-
-        /*
-            You would need to first register with DockerHub before you can push images to your account
-        */
-//          docker.withRegistry('https://180522143609.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:madhavi') {
-
-//    app=docker.build('jenkinspipeline')
-//   app.push ('latest') 
-//                      echo '### Docker image pushed on aws ecr successfully.'  
-
-//          }  
-//     }
-
-   stage('push image on docker hub') {
-     echo '### Started pushing the docker image..'
-       def Image = docker.build 'madhavikadam/myrepo-agora' + ':latest'
-             docker.withRegistry(Image , 'docker') {
+//    stage('push image on docker hub') {
+//      echo '### Started pushing the docker image..'
+//        def Image = docker.build 'madhavikadam/myrepo-agora' + ':latest'
+//              docker.withRegistry(Image , 'docker') {
 //       app=docker.build('myrepo-agora')
 
 //                  app.push("${env.BUILD_NUMBER}")
-                 Image.push('latest')
-        }
+//                  Image.push('latest')
+//         }
 
-          echo '### Docker image pushed on docker hub  successfully.'  
+//           echo '### Docker image pushed on docker hub  successfully.'  
 
-      }
-//       stage('Docker Run') {
-//      steps{
-//          script {
-//             app.run("-p 5000:3000 innerbuild_1")
-//          }
-//        }
-//      }
+//       }
+
 
 }
