@@ -43,7 +43,7 @@ node {
 //      }
      stage('Push image') {
           echo '### Docker image pushing on docker hub .'
-  docker.withRegistry('https://index.docker.io. hub.docker.com', 'docker') {
+  docker.withRegistry('https://index.docker.io', 'docker') {
 //     docker.withRegistry('https://index.docker.io/v1/', 'docker') {  
              app.push("${env.BUILD_NUMBER}")
             app.push("latest")
