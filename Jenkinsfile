@@ -22,7 +22,7 @@ node {
 
         echo '### Started Building the docker image..'
      
-        app = docker.build ("innerbuild_1")
+        app = docker.build ("madhavikadam/myrepo-agora:latest")
 //    app.image('mydemo_1').withRun('-p 5000:3000')
 
 
@@ -43,11 +43,11 @@ node {
 //      }
      stage('Push image') {
           echo '### Docker image pushing on docker hub .'
-//   docker.withRegistry('https://index.docker.io', 'docker') {
-     docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora') {  
+   docker.withRegistry('https://index.docker.io', 'docker') {
+//      docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora','docker') {  
 //          bat "docker tag madhavikadam/myrepo-agora:latest" 
 //       app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("madhavikadam/myrepo-agora:latest")
 
  }
           echo '### Docker image pushed on docker hub .'
