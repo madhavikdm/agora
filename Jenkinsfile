@@ -42,11 +42,12 @@ node {
 
      }
      stage('Push image') {
+          echo '### Docker image pushing on docker hub .'
 //   docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora/', 'docker') {
     docker.withRegistry('https://registry.docker.io', 'docker') {  
 //             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
-
+ echo '### Docker image pushed on docker hub .'
  }
      }
 
