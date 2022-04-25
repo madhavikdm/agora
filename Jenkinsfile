@@ -32,15 +32,15 @@ node {
 
 
 
-    stage('Test image') {        
+//     stage('Test image') {        
 
-        app.inside {
+//         app.inside {
 
-            echo "Tests passed"    
+//             echo "Tests passed"    
 
-         }
+//          }
 
-     }
+//      }
      stage('Push image') {
           echo '### Docker image pushing on docker hub .'
 //   docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora/', 'docker') {
