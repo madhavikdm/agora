@@ -43,12 +43,11 @@ node {
 //      }
      stage('Push image') {
           echo '### Docker image pushing on docker hub .'
-  docker.withRegistry('https://index.docker.io', 'docker') {
-//     docker.withRegistry('https://index.docker.io/v1/', 'docker') {  
-         bat "docker tag madhavikadam/myrepo-agora:latest" 
+//   docker.withRegistry('https://index.docker.io', 'docker') {
+     docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora') {  
+//          bat "docker tag madhavikadam/myrepo-agora:latest" 
 //       app.push("${env.BUILD_NUMBER}")
-            app.push("madhavikadam/myrepo-agora:latest")
-//       bat "docker push madhavikadam/myrepo-agora:latest" 
+            app.push("latest")
 
  }
           echo '### Docker image pushed on docker hub .'
