@@ -42,7 +42,8 @@ node {
 
      }
      stage('Push image') {
-  docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora/', 'docker') {
+//   docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora/', 'docker') {
+    docker.withRegistry('https://registry.docker.io', 'docker') {  
 //             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
 
