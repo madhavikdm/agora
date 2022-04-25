@@ -45,8 +45,10 @@ node {
           echo '### Docker image pushing on docker hub .'
   docker.withRegistry('https://index.docker.io', 'docker') {
 //     docker.withRegistry('https://index.docker.io/v1/', 'docker') {  
-             app.push("${env.BUILD_NUMBER}")
+           
+      app.push("${env.BUILD_NUMBER}")
             app.push("latest")
+      bat "docker push madhavikadam/myrepo-agora:latest" 
  echo '### Docker image pushed on docker hub .'
  }
      }
