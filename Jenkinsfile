@@ -2,6 +2,7 @@ node {
 
     def app
     def registry= "madhavikadam/myrepo-agora"
+    def test
     stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
@@ -22,7 +23,7 @@ node {
 
         echo '### Started Building the docker image..'
      
-        app = docker.build registry + ("docker_1")
+        app = docker.build ("docker_1")
 
         echo '### Docker build successful.'
 
@@ -44,10 +45,10 @@ node {
 //    docker.withRegistry('https://index.docker.io','docker') {
 //      docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora') {  
          
-             docker.withRegistry(app,'docker') {
-//           bat "docker tag docker_1 madhavikadam/myrepo-agora:docker_1" 
+             docker.withRegistry('https://registry.hub.docker.com', 'docker') {
+           bat test= "docker tag docker_1 madhavikadam/myrepo-agora:docker_1" 
    //   app.push("${env.BUILD_NUMBER}")
-            app.push('latest')
+            test.push('latest')
 
  }
           echo '### Docker image pushed on docker hub .'
