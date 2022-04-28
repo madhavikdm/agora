@@ -43,7 +43,7 @@ node {
      stage('Push image') {
           echo '### Docker image pushing on docker hub .'
 //    docker.withRegistry('https://index.docker.io','docker') {
-     docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora') {  
+     docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora','docker') {  
          
 //              docker.withRegistry('https://registry.hub.docker.com', 'docker') {
             
