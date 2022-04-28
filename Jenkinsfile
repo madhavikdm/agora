@@ -1,7 +1,7 @@
 node {      
 
     def app
-
+    def registry= "madhavikadam/myrepo-agora"
     stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
@@ -22,7 +22,7 @@ node {
 
         echo '### Started Building the docker image..'
      
-        app = docker.build madhavikadam/myrepo-agora + : + ("docker_1")
+        app = docker.build registry + ("docker_1")
 
         echo '### Docker build successful.'
 
