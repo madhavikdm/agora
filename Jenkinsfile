@@ -46,7 +46,7 @@ node {
 //      docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora') {  
          
              docker.withRegistry('https://registry.hub.docker.com', 'docker') {
-            test = 'docker tag docker_1 madhavikadam/myrepo-agora:docker_1'
+            test = registry + ${app}
    //   app.push("${env.BUILD_NUMBER}")
             test.push('latest')
 
