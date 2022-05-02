@@ -1,8 +1,8 @@
 node {      
 
-    def app
+    def app = ' '
     def registry= "madhavikadam/myrepo-agora"
-    def image= 'registry.hub.docker.com/repository/docker/madhavikadam/myrepo-agora'
+    def image= 'repository/docker/madhavikadam/myrepo-agora'
     stage('Clone repository') {
 
         /* Cloning the Repository to our Workspace */
@@ -45,7 +45,7 @@ node {
 //    docker.withRegistry('https://index.docker.io','docker') {
 //       docker.withRegistry('https://hub.docker.com/repository/docker/madhavikadam/myrepo-agora', 'docker') {  
          
-              docker.withRegistry('https://registry.hub.docker.com', 'docker') {
+              docker.withRegistry(' ', 'docker') {
 //                  docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') { 
 //               app = docker.build('madhavikadam/myrepo-agora/docker_1').push('latest')
             
